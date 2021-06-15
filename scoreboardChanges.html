@@ -2,9 +2,12 @@
 
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         table,
         td {
@@ -60,6 +63,32 @@
             margin: 0;
         }
     </style>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $("#divs > div > div > input").on('keydown', function(e) {
+            if (e.which === 13) {
+                console.log("came");
+                console.log(e.target.id);
+                var original_id = e.target.id.split("_");
+                console.log(original_id[1].charAt(1));
+                var val_R = original_id[1].charAt(1);
+                var val_r = original_id[2].charAt(1);
+                val_R = Number(val_R) + 1;
+                console.log();
+                var final_id;
+                if(val_R <= Number(localStorage.getItem("length"))){
+                    final_id = "input_R"+val_R+"_r"+val_r;
+                }else{
+                    val_r = Number(val_r) + 1;
+                    final_id = "input_R1_r"+val_r;
+                }
+                document.getElementById(final_id).focus();
+            }
+            
+        });
+    });
+    </script>
 </head>
 
 
@@ -99,11 +128,10 @@
         <!-- <input onchange='total("1", this)' id='input_R"+(i+1)+"_r1' style='font-weight: bold; margin-left: -45px; width: 60px;' type='number'> -->
     </center>
 
-
+    
 
 
     
-    <script src="result.js"></script>
     <script src="main.js"></script>
     <script src="confetti.js"></script>
 </body>

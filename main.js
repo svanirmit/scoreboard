@@ -62,6 +62,16 @@ function total(value, row, round) {
 }
 
 function createBoard() {
+    // $(document).ready(function(){
+    //     console.log("came");
+    //     $("#divs > div > div > input").on('keydown', function(e) {
+    //         if (e.which === 13) {
+                
+    //         }
+            
+    //     });
+    // });
+    document.getElementById("divs");
     var arr = JSON.parse(localStorage.getItem("array"));
     var len = arr.length;
     for (var i = 0; i < len; i++) {
@@ -199,6 +209,7 @@ function login(){
 function logout(){
     localStorage.removeItem("array");
     localStorage.removeItem("Group Name");
+    localStorage.removeItem("length");
     localStorage.removeItem("Type");
     localStorage.removeItem("first_position_details");
     localStorage.removeItem("second_position_details");
