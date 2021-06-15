@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            table, td {
+                /* border: 2px solid #2A2B6C !important; */
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                $('select').selectize({
+                    sortField: 'text'
+                });
+            });
+        </script>
+    </head>
+
+
+    <body style="background-color: #EBEDEC;">
+        
+        <div class="col-md-12" style="height: 62px; background-color: #F5B41A; color: #2A2B6C; text-align: center;">
+            <div class="col-md-11">
+                <h1 style="padding-top: 5px; margin: 0px; font-family: Impact; color: #2A2B6C; font-weight: 300; font-size: 37px;"><img style="width: 50px;" src="images/svanirmit logo 2.png">&nbsp;&nbsp;Svanirmit&nbsp;&nbsp;&nbsp;&nbsp;Academy</h1>
+
+            </div>
+            <button onclick="logout()" id="btn_logout" style="margin-top: 10px; float: right; font-size: 20px;" class="glyphicon glyphicon-log-out btn btn-danger">Logout</button>
+        </div>
+
+
+        <div class="col-md-12" style="background-color: #2A2B6C; color: white; text-align: center;">
+            <div class="col-md-3">
+                <img style="margin-top: 15px;" src="images/cognito logo.PNG">
+            </div>
+
+            <div class="col-md-6">
+                <h1 style="font-size: 30px;">Online Academy Competition for Students</h1>
+            </div>
+
+        </div>
+
+
+
+
+
+            <div class="col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <img style="width: 250px;" src="images/dax.PNG">
+                </div>
+
+
+                <div style="margin-top: 30px;" class="col-md-5">
+                    <!-- Choose dropdown -->
+                    <div class="col-md-6">
+                        <label style="color: #2A2B6C; font-size: 20px;">Select Participants</label>
+                    </div>
+
+                    <div class="col-md-6">
+                        <select onchange="submit()" style="width: 200px; height: 30px;" id="dropdown">
+                            <option></option>
+                            <option>Mudit</option>
+                            <option>Rishank</option>
+                            <option>Kalash</option>
+                            <option>Jiyansh</option>
+                            <option>Garvit</option>
+                            <option>Gaurang</option>
+                            <option>Saurish</option>
+                            <option>Atharva</option>
+                            <option>Parth</option>
+                            <option>Ayansh</option>
+                            <option>Aarna</option>
+                            <option>Ahan</option>
+                            <option>Kavya</option>
+                            <option>Lavisha</option>
+                            <option>Samriddhi</option>
+                            <option>Aksh</option>
+                            <option>Virat</option>
+                            <option>Ipshita</option>
+                            <option>Vanya</option>
+                            <option>Shivansh</option>
+                            <option>Arjun</option>
+                            <option>Suveer</option>
+                            <option>Suvit</option>
+                            <option>Alisha</option>
+                            <option>Amarnadh</option>
+                            <option>Jiana</option>
+                            <option>Sayuri</option>
+                            <option>Avi</option>
+                            <option>Jasdeep</option>
+                            <option>Kush</option>
+                            <option>Harshita</option>
+                            <option>Prachi</option>
+                            <option>Dhyara</option>
+                            <option>Aarohi</option>
+                            <option>Rishita</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-top: 50px;">
+                        <div class="col-md-2"></div>
+
+                        <div style="background-color: white; border: 3px solid #2A2B6C; border-radius: 20px; padding: 0px; width: 100%; height: 50%; overflow: auto;" class="col-md-10">
+                            <table id="myTable">
+                                <tr>
+                                    <div style="visibility: hidden;">
+                                    <td style="padding-left: 10px; padding-right: 10px;">S.No</td>
+                                    <td style="width: 70%;"><label style="width: 80%;">List of Participants</label> </td>
+                                    <td style="width: 20%;">Action</td>
+                                </div>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <center>
+                            <button onclick="nextPage()" style="color: white; font-weight: bold; border: none; border-radius: 5px; padding-left: 20px; padding-right: 20px; font-size: 20px; height: 50px; margin-top: 10px; background-color: #F5B41A;">Create Leaderboard</button>
+                        </center>
+                    </div>
+                
+                </div>
+            </div>
+            
+            
+            
+        <script src="main.js"></script>
+    </body>
+</html>

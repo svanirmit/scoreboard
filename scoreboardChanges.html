@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .hexagon {
+            overflow: hidden;
+            visibility: hidden;
+            -webkit-transform: rotate(120deg);
+            -moz-transform: rotate(120deg);
+            -o-transform: rotate(120deg);
+            transform: rotate(120deg);
+            cursor: pointer;
+        }
+
+        .hexagon-in1 {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            -webkit-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+        }
+
+        .hexagon-in2 {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            /* background-image: url(http://placekitten.com/240/240); */
+            background-color: #24507D;
+            visibility: visible;
+            -webkit-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+        }
+
+        .hexagon1 {
+            width: 50px;
+            height: 25px;
+            margin: 0 0 0 30px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+
+<body style="background-color: #E1E2F3;" onload="createBoard()">
+    <button onclick="logout()" id="btn_logout" style="margin-top: -20px; float: right; font-size: 20px;" class="glyphicon glyphicon-log-out btn btn-danger">Logout</button>
+    
+    <h1 style="font-size: 50px; text-align: center; font-weight: 1000; font-family: ALGERIAN; color: #2A2B6C;"><img style="width: 70px;" src="images/svanirmit logo 2.png">&nbsp;&nbsp;&nbsp;&nbsp;Online&nbsp;&nbsp;Academy&nbsp;&nbsp;Abacus&nbsp;&nbsp;Competition</h1>
+
+    <center>
+        <img style="width: 50%;" src="images/scoreboard.png">
+
+
+        <div style="width: 80%; background-color: #2A2B6C;">
+            <p style="color: white; margin-left: -20px; vertical-align: middle;">
+                <label style="font-size: 18px;">S.No.</label>
+                <label style="font-size: 18px; margin-left: 100px;">List of Participants</label>
+                <label style="margin-top: 10px; text-align: center; margin-left: 100px;">Round<br>1</label>
+                <label style="margin-top: 10px; text-align: center; margin-left: 30px;">Round<br>2</label>
+                <label style="margin-top: 10px; text-align: center; margin-left: 30px;">Round<br>3</label>
+                <label style="margin-top: 10px; text-align: center; margin-left: 30px;">Round<br>4</label>
+                <label style="margin-top: 10px; text-align: center; margin-left: 30px;">Round<br>5</label>
+                <label style="font-size: 18px; margin-left: 27px;">Group</label>
+                <label style="font-size: 18px; margin-left: 20px;">Total Score</label>
+            </p>
+        </div>
+
+        <div style="width: 80%; height: 50%; margin-top: -10px;" id="divs">
+
+        </div>
+
+        <div class="col-md-12" style="margin-top: 10px;">
+        <button class="btn btn-primary" style="text-align: center;" onclick="resultGroups('A')">Group A</button>
+        <button class="btn btn-primary" style="text-align: center;" onclick="resultGroups('B')">Group B</button>
+        <button class="btn btn-primary" style="text-align: center;" onclick="resultGroups('C')">Group C</button>
+        <button class="btn btn-primary" style="text-align: center;" onclick="results()">Champion</button>
+    </div>
+        <!-- <input onchange='total("1", this)' id='input_R"+(i+1)+"_r1' style='font-weight: bold; margin-left: -45px; width: 60px;' type='number'> -->
+    </center>
+
+
+
+
+    
+    <script src="result.js"></script>
+    <script src="main.js"></script>
+    <script src="confetti.js"></script>
+</body>
+
+</html>
