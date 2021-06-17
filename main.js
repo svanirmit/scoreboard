@@ -45,7 +45,12 @@ function submit() {
 }
 
 function nextPage() {
-    window.location = "scoreboardChanges.html";
+    arr = JSON.parse(localStorage.getItem("array"));
+    if(arr){
+        window.location = "scoreboardChanges.html";
+        return;
+    }
+    alert("Please add atleast 1 student.");
 }
 
 function total(value, row, round) {
@@ -210,7 +215,7 @@ function login(){
     var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
     hashObj.update(password);
     var unhash_password = hashObj.getHash("HEX");
-    var matched_user = loginDetails.find((item)=>item.username === username && unhash_password === item.password);
+    var matched_user = loginDetails.find((item)=>item.username === username && password === item.password);
     if(matched_user){
         document.getElementById("username").value = "";
         document.getElementById("password").value = "";
