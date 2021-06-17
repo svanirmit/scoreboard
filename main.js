@@ -41,6 +41,7 @@ function submit() {
     cell2.innerHTML = name;
     cell3.innerHTML = counter;
     cell3.id = "sno" + counter;
+    document.getElementById("dropdown").value = "";
 }
 
 function nextPage() {
@@ -61,16 +62,7 @@ function total(value, row, round) {
     document.getElementById("input_R" + row + "_sum").value = sum;
 }
 
-function createBoard() {
-    // $(document).ready(function(){
-    //     console.log("came");
-    //     $("#divs > div > div > input").on('keydown', function(e) {
-    //         if (e.which === 13) {
-                
-    //         }
-            
-    //     });
-    // });
+function createBoard(){
     document.getElementById("divs");
     var arr = JSON.parse(localStorage.getItem("array"));
     var len = arr.length;
@@ -204,7 +196,28 @@ function resultGroups(group_name) {
     }
 }
 function login(){
-    window.location = "home.html";
+    var loginDetails = JSON.parse(localStorage.getItem("LoginDetails"));
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(!username){
+        alert("Please enter a valid username.");
+        return;
+    }
+    if(!password){
+        alert("Please enter a valid password.");
+        return;
+    }
+    var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+    hashObj.update(password);
+    var unhash_password = hashObj.getHash("HEX");
+    var matched_user = loginDetails.find((item)=>item.username === username && unhash_password === item.password);
+    if(matched_user){
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        window.location = "home.html";
+        return;
+    }
+    alert("The provided credentials are incorrect.");
 }
 function logout(){
     localStorage.removeItem("array");

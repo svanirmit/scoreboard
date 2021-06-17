@@ -4,17 +4,41 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+        <script>
+            let person;
+            if(localStorage.getItem("LoginDetails") == null){
+                person =[{username:"svanirmit", password:"12345"}, {username:"cognito", password:"cognito02"}];
+                hash(person);
+                localStorage.setItem("LoginDetails", JSON.stringify(person));
+            }
+            // var pwdObj = document.getElementById('pwd');
+            
+            // pwdObj.value = hash;
+            function hash(obj){
+                for(var i=0;i<person.length;i++){
+                    var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+                    hashObj.update(person[i].password);
+                    var hash = hashObj.getHash("HEX");
+                    person[i].password = hash;
+                    console.log(hash);
+                }
+            }
+            
+        </script>
     </head>
 
-    <body style="background-image: linear-gradient(to right top, #33a0f1, #2591d9, #1882c1, #0a73aa, #006494);">
+    <body onload="document.getElementById('username').innerHTML  = '';" style="background-image: linear-gradient(to right top, #33a0f1, #2591d9, #1882c1, #0a73aa, #006494);">
         <center style="margin-top: 100px;">
             <h1 style="color: white; font-weight: bold;">Online Academy Competition</h1>
 
             <div style="margin-top: 50px; padding: 20px; text-align: left; border-radius: 20px; width: 30%; background-color: #D1E6F3;">
                 <label>Username : </label><br>
-                <input style="width: 100%;" type="text"><br><br>
+                <input id="username" style="width: 100%;" type="text"><br><br>
                 <label>Password : </label><br>
-                <input style="width: 100%;" type="text"><br>
+                <form>
+                    <input id="password" style="width: 100%;" type="password"><br>
+                </form>
             </div>
 
             <button onclick="login()" style="margin-top: 30px;" class="btn btn-success">Login</button>
