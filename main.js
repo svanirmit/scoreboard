@@ -16,7 +16,10 @@ function removeName(e) {
             document.getElementById("sno"+(i+2)).innerText = count[i];
             document.getElementById("sno"+(i+2)).id = "sno"+(i+1);
         }
+        
     }
+    counter--;
+        console.log(counter);
 }
 
 function submit() {
