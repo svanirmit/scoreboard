@@ -11,7 +11,6 @@ function removeName(e) {
     localStorage.setItem("array", JSON.stringify(name_of_the_students));
     for(var i=serial_no-1;i<count.length;i++){
         count[i] = count[i] - 1;
-        console.log(i+1);
         if(document.getElementById("sno"+(i+2))){
             document.getElementById("sno"+(i+2)).innerText = count[i];
             document.getElementById("sno"+(i+2)).id = "sno"+(i+1);
@@ -19,7 +18,6 @@ function removeName(e) {
         
     }
     counter--;
-        console.log(counter);
 }
 
 function submit() {
@@ -207,6 +205,7 @@ function login(){
     var loginDetails = JSON.parse(localStorage.getItem("LoginDetails"));
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    console.log(username, password);
     if(!username){
         alert("Please enter a valid username.");
         return;
@@ -218,7 +217,7 @@ function login(){
     var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
     hashObj.update(password);
     var unhash_password = hashObj.getHash("HEX");
-    var matched_user = loginDetails.find((item)=>item.username === username && password === item.password);
+    var matched_user = loginDetails.find((item)=>item.username === username && unhash_password === item.password);
     if(matched_user){
         document.getElementById("username").value = "";
         document.getElementById("password").value = "";
