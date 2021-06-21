@@ -6,6 +6,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
         <script>
+             localStorage.clear();
             let person;
             if(localStorage.getItem("LoginDetails") == null){
                 person =[{username:"svanirmit", password:"12345"}, {username:"cognito", password:"cognito02"}];

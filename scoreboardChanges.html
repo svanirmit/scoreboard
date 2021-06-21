@@ -68,14 +68,10 @@
         $(document).ready(function(){
         $("#divs > div > div > input").on('keydown', function(e) {
             if (e.which === 13) {
-                console.log("came");
-                console.log(e.target.id);
                 var original_id = e.target.id.split("_");
-                console.log(original_id[1].charAt(1));
                 var val_R = original_id[1].charAt(1);
                 var val_r = original_id[2].charAt(1);
                 val_R = Number(val_R) + 1;
-                console.log();
                 var final_id;
                 if(val_R <= Number(localStorage.getItem("length"))){
                     final_id = "input_R"+val_R+"_r"+val_r;
@@ -83,7 +79,9 @@
                     val_r = Number(val_r) + 1;
                     final_id = "input_R1_r"+val_r;
                 }
-                document.getElementById(final_id).focus();
+                if(val_r <= 5){
+                    document.getElementById(final_id).focus();
+                }
             }
             
         });
